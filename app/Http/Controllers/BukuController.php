@@ -40,6 +40,29 @@ class BukuController extends Controller
         return redirect('/data_perpustakaan');
     }
 
+    //fungsi edit
+    public function edit($id){
+        $cariBuku = BukuModel::find($id);
+        return view('buku.edit', compact('cariBuku'));
+    }
+
+    //fungsi update
+    public function update(Request $request, $id){
+        $cariBuku = BukuModel::find($id);
+        $cariBuku->update([
+            'judul_buku' => $request->judul,
+            'penulis' => $request->penulis,
+            'editor' => $request->editor,
+            'penerbit' => $request->penerbit,
+            'tanggal_terbit' => $request->tgl_terbit,
+            'isbn' => $request->isbn,
+            'jumlah_halaman' => $request->halaman,
+            'jenis_buku' => $request->jenis,
+            'harga' => $request->harga
+        ]);
+        return redirect('/data_perpustakaan');
+    }
+
     //fungsi delete
     public function destroy($id){
         $cariBuku = BukuModel::find($id);

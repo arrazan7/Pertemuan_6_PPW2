@@ -20,8 +20,17 @@ Route::get('/test', function () {return view('testing');});
 
 Route::get('/data_perpustakaan', [BukuController::class,'index']);
 
+//Create
 Route::get('/data_perpustakaan/create', [BukuController::class,'create'])->name('membuat_data');
 
+//Store Create
 Route::post('/data_perpustakaan', [BukuController::class,'store'])->name('menyimpan_data');
 
+//Update
+Route::get('/data_perpustakaan/edit/{id}', [BukuController::class, 'edit'])->name('mengedit_data');
+
+//Store Update
+Route::post('/data_perpustakaan/update/{id}', [BukuController::class, 'update'])->name('mengupdate_data');
+
+//Delete
 Route::post('/data_perpustakaan/delete/{id}', [BukuController::class,'destroy'])->name('menghapus_data');
