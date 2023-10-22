@@ -34,3 +34,6 @@ Route::post('/data_perpustakaan/update/{id}', [BukuController::class, 'update'])
 
 //Delete
 Route::post('/data_perpustakaan/delete/{id}', [BukuController::class,'destroy'])->name('menghapus_data');
+
+//Search
+Route::get('/data_perpustakaan/search', [BukuController::class,'search'])->name('mencari_data');
